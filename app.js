@@ -1,8 +1,8 @@
 const possibleOutputs = ["Rock", "Paper", "Scissors"];
 
 function computerPlay() {
-  var aiSelection = possibleOutputs[Math.floor(Math.random()*3)];
-  return aiSelection
+  var computerPlayOutput = possibleOutputs[Math.floor(Math.random()*3)];
+  return computerPlayOutput
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -11,7 +11,7 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "Rock"){
     if (computerSelection === "Paper") {
       console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    }  else if (computerSelection === "Scissors") {
+    } else if (computerSelection === "Scissors") {
       console.log(`You win! ${playerSelection} beats ${computerSelection}`);
     }
   } else if (playerSelection === "Paper") {
@@ -30,5 +30,9 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-
+  for (let i = 0; i < 5; i++) {
+    playRound(prompt("Choose Rock, Paper or Scissors:"), computerPlay());
+  }
 }
+
+game();
