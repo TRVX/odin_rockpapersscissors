@@ -1,12 +1,12 @@
 const possibleOutputs = ["Rock", "Paper", "Scissors"];
 
-function computerPlay(){
+function computerPlay() {
   var aiSelection = possibleOutputs[Math.floor(Math.random()*3)];
   return aiSelection
 }
 
-function playRound(playerSelection, computerSelection){
-  if (playerSelection === computerSelection){
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
     console.log(`It's a tie! You both chose ${playerSelection}`);
   } else if (playerSelection === "Rock"){
     if (computerSelection === "Paper") {
@@ -27,4 +27,8 @@ function playRound(playerSelection, computerSelection){
       console.log(`You win! ${playerSelection} beats ${computerSelection}`);
     }
   }
+}
+
+function game() {
+
 }
