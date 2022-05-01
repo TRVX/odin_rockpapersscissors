@@ -1,4 +1,4 @@
-const possibleOutputs = ["Rock", "Paper", "Scissors"];
+const possibleOutputs = ["ROCK", "PAPER", "SCISSORS"];
 
 function computerPlay() {
   var computerPlayOutput = possibleOutputs[Math.floor(Math.random()*3)];
@@ -13,27 +13,27 @@ function playRound(playerSelection, computerSelection) {
     playerScore++
     computerScore++
     console.log(`It's a tie! You both chose ${playerSelection}.`);
-  } else if (playerSelection === "Rock"){
-    if (computerSelection === "Paper") {
+  } else if (playerSelection === "ROCK"){
+    if (computerSelection === "PAPER") {
       computerScore++
       console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-    } else if (computerSelection === "Scissors") {
+    } else if (computerSelection === "SCISSORS") {
       playerScore++
       console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
     }
-  } else if (playerSelection === "Paper") {
-    if (computerSelection === "Rock") {
+  } else if (playerSelection === "PAPER") {
+    if (computerSelection === "ROCK") {
       playerScore++
       console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
-    } else if (computerSelection === "Scissors") {
+    } else if (computerSelection === "SCISSORS") {
       computerScore++
       console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
     }
-  } else if (playerSelection === "Scissors") {
-    if (computerSelection === "Rock") {
+  } else if (playerSelection === "SCISSORS") {
+    if (computerSelection === "ROCK") {
       computerScore++
       console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
-    } else if (computerSelection === "Paper") {
+    } else if (computerSelection === "PAPER") {
       playerScore++
       console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
     }
@@ -42,7 +42,8 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   for (let i = 0; i < 5; i++) {
-    playRound(prompt("Choose Rock, Paper or Scissors:"), computerPlay());
+    let playerChoice = prompt("Choose between Rock, Paper and Scissors:")
+    playRound(playerChoice.toUpperCase(), computerPlay());
   }
   if (playerScore === computerScore) {
     console.log(`The game was tied! No-one wins this game of Rock, Paper and Scissors! You scored: ${playerScore} and Computer scored ${computerScore}`);
