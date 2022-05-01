@@ -41,10 +41,15 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerChoice = prompt("Choose between Rock, Paper and Scissors:")
-    playRound(playerChoice.toUpperCase(), computerPlay());
-  }
+  document.getElementById("rock-player-selection").addEventListener("click", function(){
+    playRound("ROCK", computerPlay());
+  });
+  document.getElementById("paper-player-selection").addEventListener("click", function(){
+    playRound("PAPER", computerPlay());
+  });
+  document.getElementById("scissors-player-selection").addEventListener("click", function(){
+    playRound("SCISSORS", computerPlay());
+  });
   if (playerScore === computerScore) {
     console.log(`The game was tied! No-one wins this game of Rock, Paper and Scissors! You scored: ${playerScore} and Computer scored ${computerScore}`);
   } else if (playerScore > computerScore) {
