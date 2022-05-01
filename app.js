@@ -43,12 +43,18 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   document.getElementById("rock-player-selection").addEventListener("click", function(){
     playRound("ROCK", computerPlay());
+    document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+    document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
   });
   document.getElementById("paper-player-selection").addEventListener("click", function(){
     playRound("PAPER", computerPlay());
+    document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+    document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
   });
   document.getElementById("scissors-player-selection").addEventListener("click", function(){
     playRound("SCISSORS", computerPlay());
+    document.getElementById("player-score").innerHTML = `Player Score: ${playerScore}`;
+    document.getElementById("computer-score").innerHTML = `Computer Score: ${computerScore}`;
   });
   if (playerScore === computerScore) {
     console.log(`The game was tied! No-one wins this game of Rock, Paper and Scissors! You scored: ${playerScore} and Computer scored ${computerScore}`);
