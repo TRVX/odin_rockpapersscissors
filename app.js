@@ -16,8 +16,6 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection === computerSelection) {
 
-    playerScore++
-    computerScore++
     gameStatusDOMTag.innerHTML = `It's a tie! You both chose ${playerSelection}`;
 
   } else if (playerSelection === "ROCK"){
@@ -64,43 +62,71 @@ function playRound(playerSelection, computerSelection) {
 
 const playerScoreDOMTag = document.getElementById("player-score");
 const computerScoreDOMTag = document.getElementById("computer-score");
+const gameResultsDOMTag = document.getElementById("game-results");
+
+function endGame() {
+
+  if (playerScore === computerScore) {
+
+    gameResultsDOMTag.innerHTML = "Game Tied! No-one wins this game of Rock, Paper and Scissors!"
+    playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
+    computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+
+  } else if (playerScore > computerScore) {
+
+    gameResultsDOMTag.innerHTML = "You won! Computer loses this game of Rock, Paper and Scissors! Congratulations!"
+    playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
+    computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+
+  } else if (computerScore > playerScore)  {
+
+    gameResultsDOMTag.innerHTML = "You lost! Computer wins this game of Rock, Paper and Scissors! Better Luck next time!"
+    playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
+    computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+
+  }
+
+}
 
 function game() {
+
   document.getElementById("rock-player-selection").addEventListener("click", function(){
 
     playRound("ROCK", computerPlay());
-    playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
-    computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+    console.log(playerScore);
+
+    if (playerScore === 5 || computerScore === 5) {
+
+      endGame();
+
+    }
 
   });
   document.getElementById("paper-player-selection").addEventListener("click", function(){
 
     playRound("PAPER", computerPlay());
-    playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
-    computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+    console.log(playerScore);
+
+    if (playerScore === 5 || computerScore === 5) {
+
+      endGame();
+
+    }
 
   });
   document.getElementById("scissors-player-selection").addEventListener("click", function(){
 
     playRound("SCISSORS", computerPlay());
-    playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
-    computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+    console.log(playerScore);
+
+    if (playerScore === 5 || computerScore === 5) {
+
+      endGame();
+
+    }
 
   });
 
-  if (playerScore === computerScore) {
-
-    console.log(`The game was tied! No-one wins this game of Rock, Paper and Scissors! You scored: ${playerScore} and Computer scored ${computerScore}`);
-
-  } else if (playerScore > computerScore) {
-
-    console.log(`You win! Computer loses this game of Rock, Paper and Scissors! You scored: ${playerScore} and Computer scored ${computerScore} `);
-
-  } else if (computerScore > playerScore) {
-
-    console.log(`Computer wins! You lose this game of Rock, Paper and Scissors! You scored: ${playerScore} and Computer scored ${computerScore} `);
-
-  }
 }
 
 game();
