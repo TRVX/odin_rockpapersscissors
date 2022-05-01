@@ -18,19 +18,19 @@ function playRound(playerSelection, computerSelection) {
 
     playerScore++
     computerScore++
-    console.log(`It's a tie! You both chose ${playerSelection}.`);
+    gameStatusDOMTag.innerHTML = `It's a tie! You both chose ${playerSelection}`;
 
   } else if (playerSelection === "ROCK"){
 
     if (computerSelection === "PAPER") {
 
       computerScore++
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+      gameStatusDOMTag.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}.`;
 
     } else if (computerSelection === "SCISSORS") {
 
       playerScore++
-      console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`
 
     }
   } else if (playerSelection === "PAPER") {
@@ -38,12 +38,12 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === "ROCK") {
 
       playerScore++
-      console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`
 
     } else if (computerSelection === "SCISSORS") {
 
       computerScore++
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+      gameStatusDOMTag.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}.`;
 
     }
   } else if (playerSelection === "SCISSORS") {
@@ -51,12 +51,12 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === "ROCK") {
 
       computerScore++
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}.`);
+      gameStatusDOMTag.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}.`;
 
     } else if (computerSelection === "PAPER") {
 
       playerScore++
-      console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`
 
     }
   }
