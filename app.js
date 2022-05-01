@@ -5,26 +5,37 @@ function computerPlay() {
   return computerPlayOutput
 }
 
+let playerScore = 0;
+let computerScore = 0;
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    console.log(`It's a tie! You both chose ${playerSelection}`);
+    playerScore++
+    computerScore++
+    console.log(`It's a tie! You both chose ${playerSelection}. Current score is ${playerScore} and ${computerScore}`);
   } else if (playerSelection === "Rock"){
     if (computerSelection === "Paper") {
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+      computerScore++
+      console.log(`You lose! ${computerSelection} beats ${playerSelection}. Current score is ${playerScore} and ${computerScore}`);
     } else if (computerSelection === "Scissors") {
-      console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+      playerScore++
+      console.log(`You win! ${playerSelection} beats ${computerSelection}. Current score is ${playerScore} and ${computerScore}`);
     }
   } else if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
-      console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+      playerScore++
+      console.log(`You win! ${playerSelection} beats ${computerSelection}. Current score is ${playerScore} and ${computerScore}`);
     } else if (computerSelection === "Scissors") {
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+      computerScore++
+      console.log(`You lose! ${computerSelection} beats ${playerSelection}. Current score is ${playerScore} and ${computerScore}`);
     }
   } else if (playerSelection === "Scissors") {
     if (computerSelection === "Rock") {
-      console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+      computerScore++
+      console.log(`You lose! ${computerSelection} beats ${playerSelection}. Current score is ${playerScore} and ${computerScore}`);
     } else if (computerSelection === "Paper") {
-      console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+      playerScore++
+      console.log(`You win! ${playerSelection} beats ${computerSelection}. Current score is ${playerScore} and ${computerScore}`);
     }
   }
 }
