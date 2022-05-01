@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (computerSelection === "SCISSORS") {
 
       playerScore++
-      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`
+      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`;
 
     }
   } else if (playerSelection === "PAPER") {
@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === "ROCK") {
 
       playerScore++
-      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`
+      gameStatusDOMTag.innerHTML = `You win! ${playerSelection} beats ${computerSelection}.`;
 
     } else if (computerSelection === "SCISSORS") {
 
@@ -63,6 +63,9 @@ function playRound(playerSelection, computerSelection) {
 const playerScoreDOMTag = document.getElementById("player-score");
 const computerScoreDOMTag = document.getElementById("computer-score");
 const gameResultsDOMTag = document.getElementById("game-results");
+const rockPlayerButton = document.getElementById("rock-player-selection");
+const paperPlayerButton = document.getElementById("paper-player-selection");
+const scissorsPlayerButton = document.getElementById("scissors-player-selection");
 
 function endGame() {
 
@@ -71,18 +74,27 @@ function endGame() {
     gameResultsDOMTag.innerHTML = "Game Tied! No-one wins this game of Rock, Paper and Scissors!"
     playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
     computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+    rockPlayerButton.remove();
+    paperPlayerButton.remove();
+    scissorsPlayerButton.remove();
 
   } else if (playerScore > computerScore) {
 
     gameResultsDOMTag.innerHTML = "You won! Computer loses this game of Rock, Paper and Scissors! Congratulations!"
     playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
     computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+    rockPlayerButton.remove();
+    paperPlayerButton.remove();
+    scissorsPlayerButton.remove();
 
   } else if (computerScore > playerScore)  {
 
     gameResultsDOMTag.innerHTML = "You lost! Computer wins this game of Rock, Paper and Scissors! Better Luck next time!"
     playerScoreDOMTag.innerHTML = `Player Score: ${playerScore}`;
     computerScoreDOMTag.innerHTML = `Computer Score: ${computerScore}`;
+    rockPlayerButton.remove();
+    paperPlayerButton.remove();
+    scissorsPlayerButton.remove();
 
   }
 
